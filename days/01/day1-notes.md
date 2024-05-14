@@ -23,7 +23,7 @@ docker run
 - Sometime to spin a container of an image, we need to provide some parameters in enviornment variables.
 - To run a docker container of a postgres image we could use the below command:
 ```
-docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres:tag
 ```
 - To stop a docker container we could run the below comand:
 ```
