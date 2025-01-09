@@ -20,6 +20,7 @@ Ensure the following are installed before proceeding:
 
 ### 1. Create a Folder
 - Create a folder and navigate into it:
+
   ```bash
   mkdir my-cdk-project
   cd my-cdk-project
@@ -30,28 +31,33 @@ Ensure the following are installed before proceeding:
 
 ### 3. Initialize CDK
 - Initialize the CDK app with Python as the language:
+
   ```bash
   cdk init app --language python
   ```
 
 ### 4. Configure AWS Credentials
 - Use AWS SSO to configure your credentials:
+
   ```bash
   aws configure sso
   ```
 
 ### 5. Bootstrap Your Environment
 - Bootstrap your AWS environment:
+
   ```bash
   cdk bootstrap
   ```
 
 #### Note:
 - If updates or customizations are needed for the bootstrap template, run:
+
   ```bash
   cdk bootstrap --show-template > bootstrap-template.yml
   ```
 - To enforce permissions boundaries, add the following to your `cdk.json`:
+
   ```json
   {
       "context": {
@@ -64,19 +70,24 @@ Ensure the following are installed before proceeding:
 
 #### Custom Bootstrap:
 - Deploy a custom bootstrap template:
+
   ```bash
   export AWS_PROFILE="my-aws-profile"
-  cdk bootstrap       --template templates/cdk-bootstrap-templte.yaml       --role-arn "arn:aws:iam::$( aws sts get-caller-identity --query Account | tr -d '"' ):role/LillyCloudFormationExecutionRole"
+  cdk bootstrap       
+    --template templates/cdk-bootstrap-templte.yaml       
+    --role-arn "arn:aws:iam::$( aws sts get-caller-identity --query Account | tr -d '"' ):role/LillyCloudFormationExecutionRole"
   ```
 
 ### 6. List CDK Stacks
 - List the available CDK stacks in your app:
+
   ```bash
   cdk list
   ```
 
 ### 7. Deploy Your CDK Stack
 - Deploy the stack (if you are not setting up a pipeline):
+
   ```bash
   cdk deploy
   ```
